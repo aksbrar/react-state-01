@@ -5,9 +5,10 @@ export default function Section(){
   // incredients list
   let [ingredientsList, setIngredientsList] = useState([])
 
+  let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
+
   function handleSubmit(event) {
         event.preventDefault()
-        alert("working")
         const formData = new FormData(event.currentTarget)
         const newIngredient = formData.get("ingredient")
         setIngredientsList(ingredientsList => [...ingredientsList, newIngredient] )
@@ -26,7 +27,7 @@ export default function Section(){
       </form>
 
       <ul className="list-container">
-        {ingredientsList.map((item)=> {return <li key={item}>{item}</li>})}
+        {ingredientsListHtml}
       </ul>
     </section>
   )

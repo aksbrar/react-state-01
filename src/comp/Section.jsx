@@ -7,16 +7,14 @@ export default function Section(){
 
   let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
 
-  function handleSubmit(event) {
-        event.preventDefault()
-        const formData = new FormData(event.currentTarget)
+  function handleForm(formData) {
         const newIngredient = formData.get("ingredient")
         setIngredientsList(ingredientsList => [...ingredientsList, newIngredient] )
   }
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="add-ingredient-form">
+      <form action={handleForm} className="add-ingredient-form">
         <input 
             type="text"
             placeholder="e.g. oregano"

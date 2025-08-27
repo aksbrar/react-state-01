@@ -13,7 +13,7 @@ export default function Section(){
   }
 
   return (
-    <section>
+    <main>
       <form action={handleForm} className="add-ingredient-form">
         <input 
             type="text"
@@ -24,9 +24,22 @@ export default function Section(){
         <button>Add ingredient</button>
       </form>
 
-      <ul className="list-container">
-        {ingredientsListHtml}
-      </ul>
-    </section>
+      {
+
+        ingredientsList.length > 0 &&
+        <section>
+            <h2>Ingredients on hand:</h2>
+            <ul className="ingredients-list" aria-live="polite">{ingredientsListHtml}</ul>
+            <div className="get-recipe-container">
+                <div>
+                    <h3>Ready for a recipe?</h3>
+                    <p>Generate a recipe from your list of ingredients.</p>
+                </div>
+                <button>Get a recipe</button>
+            </div>
+        </section>
+      }
+      
+    </main>
   )
 }

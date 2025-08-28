@@ -3,7 +3,7 @@ import { useState } from "react"
 export default function Section(){
 
   // incredients list
-  let [ingredientsList, setIngredientsList] = useState([])
+  let [ingredientsList, setIngredientsList] = useState(["all spices", "oregano", "chicken", "beef"])
   let [isShown, setisShown] = useState(false)
   let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
 

@@ -1,6 +1,7 @@
-export default function Ingredients({ingredientsList, showRecpie, isShown, ingredientsListHtml}){
+export default function Ingredients({ingredientsList, showRecpie, isShown}){
   if (ingredientsList.length === 0) return null
-  
+  let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
+
   return (
     <section>
             <h2>Ingredients on hand:</h2>

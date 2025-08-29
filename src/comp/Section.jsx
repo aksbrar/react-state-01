@@ -1,5 +1,6 @@
 import { useState } from "react"
 import Recipe from "./Recipie"
+import Ingredients from "./ingredients"
 
 export default function Section(){
 
@@ -29,22 +30,7 @@ export default function Section(){
         <button>Add ingredient</button>
       </form>
 
-      {
-        ingredientsList.length > 0 &&
-        <section>
-            <h2>Ingredients on hand:</h2>
-            <ul className="ingredients-list" aria-live="polite">{ingredientsListHtml}</ul>
-            {
-              ingredientsList.length > 3 &&
-              <div className="get-recipe-container">
-                <div>
-                    <h3>Ready for a recipe?</h3>
-                    <p>Generate a recipe from your list of ingredients.</p>
-                </div>
-                <button onClick={showRecpie}>{isShown ? "Hide" : "Show"} recipe</button>
-              </div>}
-        </section>
-      }
+      <Ingredients isShown={isShown} ingredientsList={ingredientsList} showRecpie={showRecpie} ingredientsListHtml={ingredientsListHtml}/>
 
       <Recipe isShown={isShown} />
     </main>

@@ -2,20 +2,25 @@ import { useState } from "react"
 
 export default function Section(){
 
-  // incredients list
+  // states
   let [ingredientsList, setIngredientsList] = useState(["all spices", "oregano", "chicken", "beef"])
   let [isShown, setisShown] = useState(false)
+
+  // incredient lists
   let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
 
+  // function to handleform
   function handleForm(formData) {
         const newIngredient = formData.get("ingredient")
         setIngredientsList(ingredientsList => [...ingredientsList, newIngredient] )
   }
 
+  // function to show or hide recipie
   function showRecpie(){
     setisShown(prev => !prev) 
   }
 
+  // component
   return (
     <main>
       <form action={handleForm} className="add-ingredient-form">

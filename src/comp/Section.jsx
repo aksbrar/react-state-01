@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Recipe from "./Recipie"
 import Ingredients from "./ingredients"
+import Form from "./Form"
 
 export default function Section(){
 
@@ -20,15 +21,7 @@ export default function Section(){
 
   return (
     <main>
-      <form action={handleForm} className="add-ingredient-form">
-        <input 
-            type="text"
-            placeholder="e.g. oregano"
-            aria-label="Add ingredient"
-            name="ingredient"
-        />
-        <button>Add ingredient</button>
-      </form>
+      <Form handleForm={handleForm}/>
 
       <Ingredients isShown={isShown} ingredientsList={ingredientsList} showRecpie={showRecpie} ingredientsListHtml={ingredientsListHtml}/>
 

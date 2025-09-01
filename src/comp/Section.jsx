@@ -12,6 +12,7 @@ export default function Section(){
 
   // ref variables
   const divRef =  useRef(null)
+  console.log(divRef)
   
   // handle form
   function handleForm(formData) {

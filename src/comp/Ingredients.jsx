@@ -1,4 +1,4 @@
-export default function Ingredients({ingredientsList, showRecpie, isShown}){
+export default function Ingredients({ingredientsList, showRecpie, isShown, divRef}){
   if (ingredientsList.length === 0) return null
   let ingredientsListHtml = ingredientsList.map((item)=> {return <li key={item}>{item}</li>})
 
@@ -9,7 +9,7 @@ export default function Ingredients({ingredientsList, showRecpie, isShown}){
             {
               ingredientsList.length > 3 &&
               <div className="get-recipe-container">
-                <div>
+                <div ref={divRef}>
                     <h3>Ready for a recipe?</h3>
                     <p>Generate a recipe from your list of ingredients.</p>
                 </div>

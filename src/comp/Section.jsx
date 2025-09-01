@@ -1,5 +1,5 @@
 // imports
-import { useState } from "react"
+import { useRef, useState } from "react"
 import Recipe from "./Recipie"
 import Ingredients from "./ingredients"
 import Form from "./Form"
@@ -9,6 +9,9 @@ export default function Section(){
   // state variables
   let [ingredientsList, setIngredientsList] = useState(["all spices", "oregano", "chicken", "beef"])
   let [isShown, setisShown] = useState(false)
+
+  // ref variables
+  const divRef =  useRef(null)
   
   // handle form
   function handleForm(formData) {
@@ -29,6 +32,7 @@ export default function Section(){
       <Ingredients isShown={isShown}
                    ingredientsList={ingredientsList} 
                    showRecpie={showRecpie} 
+                   ref={divRef}
       />
 
       <Recipe isShown={isShown} />

@@ -1,5 +1,5 @@
 // imports
-import { useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import Recipe from "./Recipie"
 import Ingredients from "./ingredients"
 import Form from "./Form"
@@ -11,8 +11,7 @@ export default function Section(){
   let [isShown, setisShown] = useState(false)
 
   // ref variables
-  const divRef =  useRef(null)
-  console.log(divRef)
+  const divRef = useRef(null)
   
   // handle form
   function handleForm(formData) {
@@ -24,6 +23,15 @@ export default function Section(){
   function showRecpie(){
     setisShown(prev => !prev) 
   }
+
+  // scroll to recipie when load
+  useEffect(() => {
+    if(isShown === true && divRef){
+      divRef.current.scrollIntoView({behavior:"smooth"})
+    } else {
+      window.scrollTo({top:0, behavior:"smooth"})
+    }
+  }, [isShown])
 
   // return component
   return (
